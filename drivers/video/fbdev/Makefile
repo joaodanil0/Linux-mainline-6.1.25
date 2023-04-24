@@ -129,7 +129,10 @@ obj-$(CONFIG_FB_MX3)		  += mx3fb.o
 obj-$(CONFIG_FB_DA8XX)		  += da8xx-fb.o
 obj-$(CONFIG_FB_SSD1307)	  += ssd1307fb.o
 obj-$(CONFIG_FB_SIMPLE)           += simplefb.o
-obj-m += ssd1306_jao.o
+
+obj-m += ssd1306_out.o
+ssd1306_out-objs := ssd1306_util.o ssd1306.o ssd1306_commands.o
+
 
 # the test framebuffer is last
 obj-$(CONFIG_FB_VIRTUAL)          += vfb.o
