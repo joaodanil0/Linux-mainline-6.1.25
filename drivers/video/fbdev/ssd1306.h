@@ -10,8 +10,6 @@
 #define I2C_DEVICE_NAME       ("SSD1306FB")
 #define SSD1306_ADDR          (0x3C)
 
-
-
 // -------------- Functions
 static int __init ssd1306_init(void);
 static void __exit ssd1306_exit(void);

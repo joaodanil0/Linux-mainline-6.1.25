@@ -5,11 +5,15 @@ static int ssd1306_probe(struct i2c_client *client, const struct i2c_device_id *
     pr_info("SSD1306 driver Probing!!!\n");
     SSD1306_DisplayInit(i2c_client); 
 
-
-    SSD1306_String("AAAAAAAAAA\n", i2c_client);
+    // SSD1306_Fill(0x00, i2c_client);
+    
+    // SSD1306_command_diagonal_scroll(SSD1306_SCROLL_DIAG_RIGTH, 0x00, 0x03, 0x07, 0x07, i2c_client);
+    // SSD1306_command_vertical_scroll(0x00, 0x01, i2c_client);
+    // SSD1306_command_activate_scroll(i2c_client);
+    SSD1306_String("Teste\n", i2c_client);
 
     //BBBBBBBBBBBBBBBBB\nCCCCCCCCCCCCCCCCCCCC\nDDDDDDDDDDDDDDDDDDDD\nEEEEEEEEEEEEEEEEEEEE\nFFFFFFFFFFFFFFFFFFFF\nGGGGGGGGGGGGGGGGGGGG\n////////////////////
-    //  SSD1306_Fill(0x01, i2c_client);
+    // SSD1306_Fill(0xFF, i2c_client);
 
  
     pr_info("OLED Probed!!!\n");
@@ -23,7 +27,7 @@ static void ssd1306_remove(struct i2c_client *client) {
     //clear the display
     SSD1306_Fill(0x00, i2c_client);
     
-    // SSD1306_command_turnon(false, i2c_client);
+    SSD1306_command_turnon(0xAE, i2c_client);
     
     pr_info("OLED Removed!!!\n");
 
